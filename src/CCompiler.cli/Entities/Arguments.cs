@@ -1,6 +1,9 @@
 ﻿
 namespace CCompiler.cli.Entities;
 
-internal sealed record Arguments(string PathToSourceFile)
+public sealed record Arguments(string PathToSourceFile)
 {
+    public bool LexOnly { get; set; } = false;
+
+    public bool FileExists() => File.Exists(PathToSourceFile);
 }

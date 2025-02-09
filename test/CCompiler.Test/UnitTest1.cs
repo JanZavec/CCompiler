@@ -1,4 +1,5 @@
 using CCompiler.cli;
+using CCompiler.cli.Entities;
 
 namespace CCompiler.Test
 {
@@ -8,20 +9,22 @@ namespace CCompiler.Test
         public void CCompiler_successfullyCalledTheParserWithValidArguments_NoExceptionThrown()
         {
             string[] args = ["--path", "/path/to/program"];
+            Arguments expectedArguments = new(args[1]);
 
-            var returnCode = CommandLineParser.Parse(args);
+            var actualArguments = CommandLineParser.Parse(args);
 
-            Assert.Equal(0, returnCode);
+            Assert.Equal(expectedArguments, actualArguments);
         }
 
         [Fact]
         public void CCompiler_TooManyArguments_ExceptionThrown()
         {
             string[] args = ["/path/to/program"];
+            var expectedException = new ArgumentException();
 
-            var returnCode = CommandLineParser.Parse(args);
+            var actualException = Assert.Throws<ArgumentException>(() => CommandLineParser.Parse(args));
 
-            Assert.Equal(1, returnCode);
+            Assert.NotNull(actualException);
         }
     }
 }

@@ -2,16 +2,12 @@
 
 namespace CCompiler.cli
 {
-    public static class CommandLineParser
+    public class CommandLineParser
     {
-        public static int Parse(string[] arguments)
+        public static Arguments Parse(string[] arguments)
         {
-            if (arguments.Contains("--path"))
-            {
-                Arguments args = new(arguments[0]);
-                return 0;
-            }
-            return 1;
+            return new(arguments[0]);
+            throw new ArgumentException("edawda");
         }
     }
 }

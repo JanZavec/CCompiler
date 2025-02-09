@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CCompiler.cli\CCompiler.cli.csproj" />
+    <ProjectReference Include="..\CCompiler.Lexer\CCompiler.Lexer.csproj" />
   </ItemGroup>
 
 </Project>
