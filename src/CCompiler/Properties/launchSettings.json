@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CCompiler": {
+      "commandName": "Project",
+      "commandLineArgs": "--path E:\\C_Project\\Examples_C"
+    }
+  }
+}
